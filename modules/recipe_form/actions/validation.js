@@ -48,7 +48,7 @@ export default [
   { name: 'cook_time', validators: [required, double] },
   { name: 'servings', validators: [required, double] },
   { name: 'rating', validators: [ratings] },
-  { name: 'source', validators: [url] },
+  { name: 'source', validators: [] },
   { name: 'title', validators: [required] },
   { name: 'info', validators: [] },
   { name: 'ingredient_groups', validators: [ingRequired] },

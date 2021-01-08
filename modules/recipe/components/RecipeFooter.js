@@ -32,10 +32,13 @@ const RecipeFooter = ({ slug, source, username, updateDate, showEditLink, delete
 
   let hostname = '';
   if (source) {
-    // Get Host name of a URL
-    let a = document.createElement('a');
-    a.href = source;
-    hostname = a.hostname;
+    if(source.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g)) {
+      // Get Host name of a URL
+      htmlSource = true;
+      let a = document.createElement('a');
+      a.href = source;
+      hostname = a.hostname;
+    }
   }
 
   const handleDelete = () => {
@@ -49,6 +52,10 @@ const RecipeFooter = ({ slug, source, username, updateDate, showEditLink, delete
       { intl.formatMessage(messages.source) }:
       <a href={ source }>{ hostname }</a>
     </div>
+  );
+
+  const sourceText = (
+    <div>{ intl.formatMessage(messages.source) }: { source }</div>
   );
 
   const editLink = (
@@ -69,7 +76,7 @@ const RecipeFooter = ({ slug, source, username, updateDate, showEditLink, delete
     <div className="panel-footer">
       <div className="row">
         <div className="col-xs-6">
-          { (source) ? sourceLink : null }
+          { (source) ? (htmlSource ? sourceLink : sourceText) : null }
           <div>{ intl.formatMessage(messages.created_by) }: { username }</div>
           <div>{ intl.formatMessage(messages.last_updated) }: { updateDate }</div>
         </div>
