@@ -31,6 +31,7 @@ const RecipeFooter = ({ slug, source, username, updateDate, showEditLink, delete
   });
 
   let hostname = '';
+  let htmlSource = false;
   if (source) {
     if(source.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g)) {
       // Get Host name of a URL
