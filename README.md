@@ -1,3 +1,11 @@
+# Purpose of Fork
+
+This fork is setup to run on a Raspberry Pi 4 and contains a few other updates.  See my main [OpenEats](https://github.com/cvanbeek13/OpenEats) project fork for more information
+
+## Modifications to this Repo
+
+- [x] Updated Dockerfile to run on RPi
+
 # OpenEats Web App
 
 [![Web Build Status](https://travis-ci.org/open-eats/openeats-web.svg?branch=master)](https://travis-ci.org/open-eats/openeats-web)
