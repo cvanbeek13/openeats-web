@@ -38,7 +38,7 @@ class Browse extends React.Component {
       this.reloadData(nextQuery);
     } else if (query.cuisine !== nextQuery.cuisine) {
       this.reloadData(nextQuery);
-    } else if (query.tag !== nextQuery.tag) {
+    } else if (query.tags !== nextQuery.tags) {
       this.reloadData(nextQuery);
     } else if (query.rating !== nextQuery.rating) {
       this.reloadData(nextQuery);

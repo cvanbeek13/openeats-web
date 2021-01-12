@@ -41,7 +41,7 @@ class SearchMenu extends React.Component {
   };
 
   render() {
-    const { courses, cuisines, ratings, qs, buildUrl, intl } = this.props;
+    const { courses, cuisines, tags, ratings, qs, buildUrl, intl } = this.props;
     const messages = defineMessages({
       reset: {
         id: 'filter.reset',

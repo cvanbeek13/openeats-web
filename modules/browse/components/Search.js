@@ -17,8 +17,8 @@ const Search = ({ search, courses, cuisines, tags, ratings, qs, qsString, buildU
               cuisines={ cuisines.results[qsString] }
               tags={ tags.results[qsString]}
               ratings={ ratings.results[qsString] }
-              loading={ courses.loading || cuisines.loading || ratings.loading }
-              error={ courses.error || cuisines.error || ratings.error }
+              loading={ courses.loading || cuisines.loading || tags.loading || ratings.loading }
+              error={ courses.error || cuisines.error || tags.error || ratings.error }
               qs={ qs }
               buildUrl={ buildUrl }
             />
