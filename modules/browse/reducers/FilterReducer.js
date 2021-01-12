@@ -30,6 +30,7 @@ function createFilterWithNamedType(filterName = '') {
 const filters = combineReducers({
   courses: createFilterWithNamedType(FilterConstants.BROWSE_FILTER_COURSE),
   cuisines: createFilterWithNamedType(FilterConstants.BROWSE_FILTER_CUISINE),
+  tags: createFilterWithNamedType(FilterConstants.BROWSE_FILTER_TAGS),
   ratings: createFilterWithNamedType(FilterConstants.BROWSE_FILTER_RATING),
 });
 

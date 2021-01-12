@@ -26,6 +26,7 @@ class SearchMenu extends React.Component {
         (
             nextProps.courses === undefined &&
             nextProps.cuisines === undefined &&
+            nextProps.tags === undefined &&
             nextProps.rating === undefined &&
             !nextProps.error
         )
@@ -56,6 +57,11 @@ class SearchMenu extends React.Component {
         id: 'filter.filter_cuisine',
         description: 'Filter field cuisine',
         defaultMessage: 'Cuisines',
+      },
+      filter_tag: {
+        id: 'filter.filter_tag',
+        description: 'Filter field tag',
+        defaultMessage: 'Tags',
       },
       filter_rating: {
         id: 'filter.filter_rating',
@@ -185,6 +191,16 @@ class SearchMenu extends React.Component {
           </div>
           <div className="col-sm-12 col-xs-4">
             <Filter
+              title={ intl.formatMessage(messages.filter_tag) }
+              qsTitle="tags" // tag or tags?
+              data={ tags || [] }
+              qs={ qs }
+              multiSelect={ true }
+              buildUrl={ buildUrl }
+            />
+          </div>
+          <div className="col-sm-12 col-xs-4">
+            <Filter
               title={ intl.formatMessage(messages.filter_rating) }
               qsTitle="rating"
               data={
@@ -236,6 +252,7 @@ SearchMenu.propTypes = {
   qs: PropTypes.object.isRequired,
   courses: PropTypes.array,
   cuisines: PropTypes.array,
+  tags: PropTypes.array,
   ratings: PropTypes.array,
   buildUrl: PropTypes.func.isRequired,
 };
