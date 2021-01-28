@@ -6,7 +6,7 @@ import Results from '../components/Results'
 import NoResults from '../components/NoResults'
 import Loading from '../components/Loading'
 
-const Search = ({ search, courses, cuisines, ratings, qs, qsString, buildUrl, doSearch, defaultFilters }) => {
+const Search = ({ search, courses, cuisines, tags, ratings, qs, qsString, buildUrl, doSearch, defaultFilters }) => {
   if (Object.keys(search.results).length > 0) {
     return (
       <div className="container">
@@ -15,9 +15,10 @@ const Search = ({ search, courses, cuisines, ratings, qs, qsString, buildUrl, do
             <SearchMenu
               courses={ courses.results[qsString] }
               cuisines={ cuisines.results[qsString] }
+              tags={ tags.results[qsString]}
               ratings={ ratings.results[qsString] }
-              loading={ courses.loading || cuisines.loading || ratings.loading }
-              error={ courses.error || cuisines.error || ratings.error }
+              loading={ courses.loading || cuisines.loading || tags.loading || ratings.loading }
+              error={ courses.error || cuisines.error || tags.error || ratings.error }
               qs={ qs }
               buildUrl={ buildUrl }
             />

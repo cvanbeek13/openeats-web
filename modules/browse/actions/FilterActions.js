@@ -68,6 +68,32 @@ export const loadCuisines = (filter) => {
   }
 };
 
+export const loadTags = (filter) => {
+  return dispatch => {
+    dispatch({
+      type: FilterConstants.BROWSE_FILTER_LOADING,
+      filterName: FilterConstants.BROWSE_FILTER_TAGS,
+    });
+
+    request()
+      .get(serverURLs.tag_count)
+      .query(parsedFilter(filter))
+      .then(res => (
+        dispatch({
+          type: FilterConstants.BROWSE_FILTER_LOAD,
+          filterName: FilterConstants.BROWSE_FILTER_TAGS,
+          qs: queryString.stringify(filter),
+          res: res.body.results
+        })
+      ))
+      .catch(err => (
+        dispatch({
+          type: FilterConstants.BROWSE_FILTER_ERROR,
+          filterName: FilterConstants.BROWSE_FILTER_TAGS,
+        })
+      ));
+  }
+};
 export const loadRatings = (filter) => {
   return dispatch => {
     dispatch({

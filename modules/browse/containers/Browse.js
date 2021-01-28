@@ -38,6 +38,8 @@ class Browse extends React.Component {
       this.reloadData(nextQuery);
     } else if (query.cuisine !== nextQuery.cuisine) {
       this.reloadData(nextQuery);
+    } else if (query.tags !== nextQuery.tags) {
+      this.reloadData(nextQuery);
     } else if (query.rating !== nextQuery.rating) {
       this.reloadData(nextQuery);
     } else if (query.search !== nextQuery.search) {
@@ -51,6 +53,7 @@ class Browse extends React.Component {
       this.props.searchActions.loadRecipes(this.mergeDefaultFilters(qs));
       this.props.filterActions.loadCourses(this.mergeDefaultFilters(qs));
       this.props.filterActions.loadCuisines(this.mergeDefaultFilters(qs));
+      this.props.filterActions.loadTags(this.mergeDefaultFilters(qs));
       this.props.filterActions.loadRatings(this.mergeDefaultFilters(qs));
     }
     else {
@@ -59,6 +62,9 @@ class Browse extends React.Component {
       }
       if (!this.props.cuisines.results[queryString.stringify(this.mergeDefaultFilters(qs))]) {
         this.props.filterActions.loadCuisines(this.mergeDefaultFilters(qs));
+      }
+      if (!this.props.tags.results[queryString.stringify(this.mergeDefaultFilters(qs))]) {
+        this.props.filterActions.loadTags(this.mergeDefaultFilters(qs));
       }
       if (!this.props.ratings.results[queryString.stringify(this.mergeDefaultFilters(qs))]) {
         this.props.filterActions.loadRatings(this.mergeDefaultFilters(qs));
@@ -145,6 +151,7 @@ Browse.propTypes = {
   search: PropTypes.object.isRequired,
   courses: PropTypes.object.isRequired,
   cuisines: PropTypes.object.isRequired,
+  tags: PropTypes.object.isRequired,
   ratings: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   filterActions: PropTypes.object.isRequired,
@@ -155,6 +162,7 @@ const mapStateToProps = state => ({
   search: state.browse.search,
   courses: state.browse.filters.courses,
   cuisines: state.browse.filters.cuisines,
+  tags: state.browse.filters.tags,
   ratings: state.browse.filters.ratings,
 });
 

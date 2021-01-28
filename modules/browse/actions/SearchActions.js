@@ -10,7 +10,8 @@ export const loadRecipes = (filter) => {
 
     const map = {
       'cuisine': 'cuisine__slug',
-      'course': 'course__slug'
+      'course': 'course__slug',
+      'tags': 'tags__slug'
     };
 
     let parsedFilter = {};
