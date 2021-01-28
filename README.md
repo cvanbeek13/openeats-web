@@ -5,7 +5,9 @@ This fork is setup to run on a Raspberry Pi 4 and contains a few other updates. 
 ## Modifications to this Repo
 
 - [x] Updated Dockerfile to run on RPi
-- [ ] Allow Recipe source to not be a URL.  This allows you to use the name of a physical cookbook instead
+- [x] Allow Recipe source to not be a URL.  This allows you to use the name of a physical cookbook instead
+- [x] Allow Recipes to be filtered by tags
+- [ ] Add recipe scraper
 
 # OpenEats Web App
 
